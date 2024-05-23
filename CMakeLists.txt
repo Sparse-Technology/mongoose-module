@@ -18,7 +18,9 @@ if(CONFIG_MONGOOSE)
 
     # we'r set as zephyr from mongoose source
     # #define MG_ARCH_ZEPHYR 7
-    add_definitions(-DMG_ARCH=7)
+    set(MG_ARCH_ZEPHYR 7)
+    add_definitions(-DMG_ARCH=${MG_ARCH_ZEPHYR})
+    zephyr_compile_definitions(-DMG_ARCH=${MG_ARCH_ZEPHYR})
 
     add_library(MONGOOSE INTERFACE)
 
